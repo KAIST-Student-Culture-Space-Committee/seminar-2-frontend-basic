@@ -55,6 +55,8 @@ export default function ReservationDetailPage() {
     // 마운트 시 예약 목록을 가져오는 예시
     // setReservations(reservationList);
     // TODO: 예약 목록중 reservation list에서 roomId 에 맞게 reservations 만들기 (hint: filter 사용)
+    
+    setReservations(reservationList.filter(m => m.roomId == id))
     console.log("예약 목록이 로드되었습니다.", reservationList);
   }, []);
 
@@ -71,20 +73,20 @@ export default function ReservationDetailPage() {
       </thead>
 
       <tbody>
-        {
-          // 예시 row
-        }
-        <tr>
-          <td>0</td>
-          <td>0</td>
-          <td>방이름</td>
-          <td>예약 예시</td>
-          <td>예약자명 예시</td>
-        </tr>
 
         {
-          // TODO: reservations 를 활용해서 row 만들기
-          // hint: map 활용
+
+          reservations.map(m => {
+            return (
+              <tr>
+                <td>{m.id}</td>
+                <td>{m.roomId}</td>
+                <td>{m.roomName}</td>
+                <td>{m.reservationName}</td>
+                <td>{m.userName}</td>
+              </tr>
+            )
+          })
         }
       </tbody>
     </table>
