@@ -54,6 +54,7 @@ export default function ReservationDetailPage() {
   useEffect(() => {
     // 마운트 시 예약 목록을 가져오는 예시
     // setReservations(reservationList);
+    setReservations(reservationList.filter((r) => r.roomId === id));
     // TODO: 예약 목록중 reservation list에서 roomId 에 맞게 reservations 만들기 (hint: filter 사용)
     console.log("예약 목록이 로드되었습니다.", reservationList);
   }, []);
@@ -85,6 +86,15 @@ export default function ReservationDetailPage() {
         {
           // TODO: reservations 를 활용해서 row 만들기
           // hint: map 활용
+          reservations.map((r) => (
+            <tr key={r.id}>
+              <td>{r.id}</td>
+              <td>{r.roomId}</td>
+              <td>{r.roomName}</td>
+              <td>{r.reservationName}</td>
+              <td>{r.userName}</td>
+            </tr>
+          ))
         }
       </tbody>
     </table>

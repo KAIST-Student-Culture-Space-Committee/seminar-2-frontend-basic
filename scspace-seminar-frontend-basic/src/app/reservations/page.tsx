@@ -35,6 +35,7 @@ export default function ReservationsPage() {
       </ul>
       {
         // TODO: LinkButton 컴포넌트를 활용하여 about 으로 가는 링크 버튼을 만들기
+        <LinkButton text="go to about"/>
       } 
     </div>
   );
